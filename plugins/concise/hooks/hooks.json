@@ -1,0 +1,17 @@
+{
+  "description": "Request one concision review after each completed turn.",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/stop.cjs"],
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

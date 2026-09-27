@@ -1,0 +1,13 @@
+{
+  "name": "concise",
+  "version": "0.1.1",
+  "description": "Review each response for concision and clear technical English, with one correction pass and loop protection.",
+  "author": {
+    "name": "Peter Rallojay",
+    "url": "https://github.com/Peterrallojay"
+  },
+  "homepage": "https://github.com/Peterrallojay/claude-concise",
+  "repository": "https://github.com/Peterrallojay/claude-concise",
+  "license": "MIT",
+  "keywords": ["hooks", "concise", "plain-english", "technical-writing"]
+}

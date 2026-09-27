@@ -1,0 +1,16 @@
+{
+  "name": "claude-concise",
+  "owner": {
+    "name": "Peter Rallojay"
+  },
+  "metadata": {
+    "description": "Small tools for clearer conversations with Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "concise",
+      "source": "./plugins/concise",
+      "description": "An automatic concision review after each Claude Code turn."
+    }
+  ]
+}
