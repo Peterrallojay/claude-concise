@@ -1,21 +1,19 @@
-'use strict';
-
-const assert = require('node:assert/strict');
-const { spawnSync } = require('node:child_process');
-const { mkdtempSync, cpSync, rmSync, readFileSync } = require('node:fs');
-const { tmpdir } = require('node:os');
-const path = require('node:path');
-const test = require('node:test');
+import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
+import { mkdtempSync, cpSync, rmSync, readFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import test from 'node:test';
 
 const pluginRoot = path.resolve(__dirname, '../plugins/concise');
-const hook = JSON.parse(readFileSync(path.join(pluginRoot, 'hooks/hooks.json'), 'utf8')).hooks.Stop[0].hooks[0];
+const hook: { command: string; args: string[] } = JSON.parse(readFileSync(path.join(pluginRoot, 'hooks/hooks.json'), 'utf8')).hooks.Stop[0].hooks[0];
 const original = {
   hook_event_name: 'Stop',
   stop_hook_active: false,
   last_assistant_message: 'The requested change is complete. The focused tests passed.',
 };
 
-function run(input, root = pluginRoot) {
+function run(input: unknown, root = pluginRoot) {
   assert.equal(hook.command, 'node');
   const args = hook.args.map((arg) => arg.replaceAll('${CLAUDE_PLUGIN_ROOT}', root));
   const result = spawnSync(process.execPath, args, {

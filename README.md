@@ -37,13 +37,16 @@ Start a new session to apply the change.
 
 ## Development
 
+The source and tests use TypeScript. The compiled hook ships with the plugin, so users do not need TypeScript or a build step. Run `npm run build` after editing the source and commit the updated `stop.cjs`.
+
 ```sh
-node --test
+npm ci
+npm test
 claude plugin validate .
 claude plugin validate ./plugins/concise
 claude --plugin-dir ./plugins/concise
 ```
 
-The implementation is [one script](plugins/concise/hooks/stop.cjs), registered in [hooks.json](plugins/concise/hooks/hooks.json). It reads the hook event from standard input and returns [Stop feedback](https://code.claude.com/docs/en/hooks#stop-decision-control). It skips empty responses, malformed input, and turns already continuing from any Stop hook. It does not read transcripts, write files, or make network requests.
+The implementation is [one TypeScript file](plugins/concise/hooks/stop.cts), registered in [hooks.json](plugins/concise/hooks/hooks.json). It reads the hook event from standard input and returns [Stop feedback](https://code.claude.com/docs/en/hooks#stop-decision-control). It skips empty responses, malformed input, and turns already continuing from any Stop hook. It does not read transcripts, write files, or make network requests.
 
 MIT licensed. Built by [Peter Rallojay](https://github.com/Peterrallojay).

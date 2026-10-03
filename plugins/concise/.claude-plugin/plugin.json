@@ -1,6 +1,6 @@
 {
   "name": "concise",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Review each response for concision and clear technical English, with one correction pass and loop protection.",
   "author": {
     "name": "Peter Rallojay",
